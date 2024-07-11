@@ -1,11 +1,19 @@
 <!-- @for (color of items; track color) {
   <li>{{ color }}</li>
   } -->
-<div *ngFor="let item of items">
-  <todo-item [name]="item" ></todo-item>
-</div>
 
-<div class="item-form">
-  <item-form
-   (taskAdded)="addTask($event)"></item-form>
-</div>
+<main>
+
+  <div class="item-form component-container">
+    <item-form (taskAdded)="addTask($event)"></item-form>
+  </div>
+  <div class="component-container">
+    <search-field></search-field>
+  </div>
+  <div class="component-container todos-container">
+    <div *ngFor="let item of items">
+      <todo-item [name]="item"></todo-item>
+    </div>
+  </div>
+
+</main>

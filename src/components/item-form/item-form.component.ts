@@ -5,7 +5,7 @@ import { NgModel, FormsModule, ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   selector: "item-form",
   templateUrl: './item-form.component.html',
-  styleUrls: ["./item-form.component.html"],
+  styleUrls: ["./item-form.component.css"],
   imports: [FormsModule],
 })
 export class ItemForm {
