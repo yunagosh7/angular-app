@@ -1,0 +1,11 @@
+<h1>item form</h1>
+
+<form #form="ngForm" (onsubmit)="addTask($event)" class="form">
+  <input 
+  [(ngModel)]="newItemStr"
+  [ngModelOptions]="{standalone: true}"
+  name="newItemStr"
+  type="text" 
+  placeholder="Item name">
+  <button (click)="addTask($event)" class="create-item">Create item</button>
+</form >

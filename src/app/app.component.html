@@ -2,7 +2,10 @@
   <li>{{ color }}</li>
   } -->
 <div *ngFor="let item of items">
-  <h4>
-    <todo-item name="{{item}}" ></todo-item>
-  </h4>
+  <todo-item [name]="item" ></todo-item>
+</div>
+
+<div class="item-form">
+  <item-form
+   (taskAdded)="addTask($event)"></item-form>
 </div>
