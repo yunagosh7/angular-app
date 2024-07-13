@@ -1,7 +1,11 @@
 <div class="todo-item">
-  <h3 class="todo-item_name">
-    {{ name }}
+  <h3
+  contenteditable="true"
+  class="todo-item_name">
+    {{ task.title }}
   </h3>
-  <button class="todo-item_delete-btn button">Delete</button>
+  <button
+  (click)="onDeleteTask(task.id)"
+  class="todo-item_delete-btn button">Delete</button>
 
 </div>

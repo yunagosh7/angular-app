@@ -5,14 +5,15 @@
 <main>
 
   <div class="item-form component-container">
-    <item-form (taskAdded)="addTask($event)"></item-form>
+    <item-form ></item-form>
   </div>
-  <div class="component-container">
+  <!-- <div class="component-container">
     <search-field></search-field>
-  </div>
+  </div> -->
   <div class="component-container todos-container">
-    <div *ngFor="let item of items">
-      <todo-item [name]="item"></todo-item>
+    <div *ngFor="let task of tasks">
+      <todo-item
+      [task]="task"></todo-item>
     </div>
   </div>
 

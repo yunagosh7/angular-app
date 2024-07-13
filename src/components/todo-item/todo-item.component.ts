@@ -1,4 +1,6 @@
-import {Component, Input} from '@angular/core'
+import {Component, EventEmitter, Input, Output} from '@angular/core'
+import { Task } from '../../interfaces/Task';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   standalone: true,
@@ -7,5 +9,16 @@ import {Component, Input} from '@angular/core'
   styleUrls: ["./todo-item.component.css"]
 })
 export class TodoItem {
-  @Input() name!: string;
+
+  constructor(
+    private taskService: TaskService
+  ) {
+
+  }
+
+  @Input() task!: Task;
+
+  onDeleteTask(itemId: number) {
+    this.taskService.deleteTaskById(itemId);
+  }
 }

@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { TodoItem } from '../components/todo-item/todo-item.component'
 import { ItemForm } from '../components/item-form/item-form.component';
 import { SearchField } from '../components/search-field/search-field.component';
+import { TaskService } from '../services/task.service';
+import { Task } from '../interfaces/Task';
 
 @Component({
   standalone: true,
@@ -13,14 +15,11 @@ import { SearchField } from '../components/search-field/search-field.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'proyectardo';
 
-  items: string[] = ["caca", "culo", "pedo", "pis"]
+  constructor(
+    private taskService: TaskService
+  ) {}
 
-  addTask(item: string) {
-    console.log("wasca")
-    this.items.push(item);
-  }
-
+  tasks = this.taskService.getTasks()
 
 }

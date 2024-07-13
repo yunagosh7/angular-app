@@ -1,10 +1,12 @@
-<form #form="ngForm" (onsubmit)="addTask($event)" class="form">
-  <input 
+<form #form="ngForm" (onsubmit)="onAddTask($event)" class="form">
+  <input
   [(ngModel)]="newItemStr"
   [ngModelOptions]="{standalone: true}"
   name="newItemStr"
-  type="text" 
+  type="text"
   class="form_input"
   placeholder="Item name">
-  <button (click)="addTask($event)" class="form_submit-btn button">Create</button>
+  <button
+   (click)="onAddTask($event)"
+   class="form_submit-btn button">Create</button>
 </form >

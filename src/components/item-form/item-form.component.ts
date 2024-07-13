@@ -1,5 +1,6 @@
-import { OnChanges, Component, EventEmitter, Output, Input, model } from '@angular/core'
-import { NgModel, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, Output } from '@angular/core'
+import { FormsModule } from '@angular/forms';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   standalone: true,
@@ -9,16 +10,28 @@ import { NgModel, FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [FormsModule],
 })
 export class ItemForm {
- 
+
+  constructor(
+    private taskService: TaskService
+  ) {
+
+  }
+
   newItemStr = "" ;
 
   @Output()
-  taskAdded = new EventEmitter<string>();
+  addTask = new EventEmitter<string>();
 
-  addTask(e: any) {
-    if(this.newItemStr.trim()) {
-      this.taskAdded.emit(this.newItemStr)
-      this.newItemStr = ""
+
+  onAddTask(e: any) {
+    const newTask = {
+      title: this.newItemStr,
+      id: Math.floor(Math.random() * 2000)
     }
+    this.taskService.addTask(newTask);
+    // if(this.newItemStr.trim()) {
+    //   this.addTask.emit(this.newItemStr)
+    //   this.newItemStr = ""
+    // }
   }
 }
