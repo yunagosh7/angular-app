@@ -1,8 +1,13 @@
 <div class="todo-item">
   <h3
-  contenteditable="true"
   class="todo-item_name">
+  <a
+  [title]="task.title"
+  [routerLink]="['/todo', task.id]"
+  >
+
     {{ task.title }}
+  </a>
   </h3>
   <button
   (click)="onDeleteTask(task.id)"

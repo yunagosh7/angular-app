@@ -16,10 +16,5 @@ import { Task } from '../interfaces/Task';
 })
 export class AppComponent {
 
-  constructor(
-    private taskService: TaskService
-  ) {}
-
-  tasks = this.taskService.getTasks()
 
 }
